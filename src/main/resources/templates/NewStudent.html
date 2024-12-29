@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+</head>
+<body>
+
+<h1>Add new Student</h1>
+
+<form th:action="@{/admin/new/proceed}" method="post">
+    <label for="firstname">Ім'я: </label>
+    <input type="text" th:value="${firstname}" id="firstname" name="firstname"><br><br>
+        
+
+    <label for="secondname">Прізвище: </label>
+    <input type="text" th:value="${secondname}" id="secondname" name="secondname"><br><br>
+         
+
+    <label for="groupname">Група: </label>
+    <input type="text" th:value="${groupname}" id="groupname" name="groupname"><br><br>
+         
+
+    <input type="submit" value="Add">
+</form>
+</body>
+</html>

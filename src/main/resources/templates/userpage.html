@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<table border="1">
+  <tr>
+    <tr>
+        <td><b>Номер</b></td>
+        <td><b>Ім'я</b></td>
+        <td><b>Прізвище</b></td>
+        <td><b>Група</b></td>
+    </tr>
+    <tr th:each="student:${StudentList}">
+        <td th:text="${student.getStudId()}"></td>
+        <td th:text="${student.getFirstname()}"></td>
+        <td th:text="${student.getSecondname()}"></td>
+        <td th:text="${student.getGroupname()}"></td>
+        <td th:text="${student.getGroupname()=='ІО-24' ? 'Контракт' : 'Бюджет'}"></td>
+            <td>
+        <span th:switch="${student.getGroupname()}">
+            <span th:case="'ІО-21'">Перший потік</span>
+            <span th:case="'ІО-22'">Другий потік</span>
+            <span th:case="*">Третій потік</span>
+        </span>
+    </td>
+</tr>
+</table>
+
+
+<form action="/user/findNames">
+  <input type="submit"  value="Пошук">
+      <label for="secondname">Пошук за прізвищем: </label>
+    <input type="text" th:value="${secondname}" id="secondname" name="secondname"><br><br>
+ </form>
+
+   
+<form action="/user/findGroups">
+  <input type="submit"  value="Пошук">
+  <label for="groupname">Пошук за групою: </label>
+    <input type="text" th:value="${groupname}" id="groupname" name="groupname"><br><br>
+ </form>
+<form action="/">
+  <input type="submit"  value="Log out">
+</form>
+</body>
+</html>

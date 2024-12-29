@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<table  border="1">
+    <tr>
+        <td><b>Номер</b></td>
+        <td><b>Ім'я</b></td>
+        <td><b>Прізвище</b></td>
+        <td><b>Група</b></td>
+    </tr>
+    <tr th:each="student:${StudentList}">
+        <td th:text="${student.getStudId()}"></td>
+        <td th:text="${student.getFirstname()}"></td>
+        <td th:text="${student.getSecondname()}"></td>
+        <td th:text="${student.getGroupname()}"></td>
+         <td>
+            <form th:action="@{/admin/edit}" method="post">
+                <input type="hidden" name="studId" th:value="${student.getStudId()}">
+                <input type="submit" value="Edit">
+            </form>
+        </td>
+        <td>
+            <form th:action="@{/admin/remove}" method="post">
+                <input type="hidden" name="studId" th:value="${student.getStudId()}">
+                <input type="submit" value="Remove">
+            </form>
+        </td>
+    </tr>
+    
+</table>
+
+
+            
+<form th:action="@{/admin/new}" method="post">
+    <input type="submit"  value="Add new">
+</form>
+<form action="/">
+    <input type="submit"  value="Log out">
+</form>
+</body>
+</html>

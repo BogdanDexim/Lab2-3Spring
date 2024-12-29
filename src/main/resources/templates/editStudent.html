@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+</head>
+<body>
+
+<h1>Edit student</h1>
+<form th:action="@{/admin/edit/proceed}" method="post">
+
+    <input type="hidden" name="studId" th:value="${studId}">
+
+    <label for="firstname">Ім'я: </label>
+        <input type="text" th:value="${firstname}" th:placeholder="${firstname}"
+           id="firstname" name="firstname"><br><br>
+
+    <label for="secondname">Прізвище: </label>
+        <input type="text" th:value="${secondname}" th:placeholder="${secondname}"
+           id="secondname" name="secondname"><br><br>
+    <label for="groupname">Група: </label>
+        <input type="text" th:value="${groupname}" th:placeholder="${groupname}"
+           id="groupname" name="groupname"><br><br>
+
+    <input type="submit" value="Edit">
+</form>
+</body>
+</html>
